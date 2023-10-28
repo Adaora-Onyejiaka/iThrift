@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../book"
+		},
+		{
+			"path": "../../flaskapp"
+		},
+		{
+			"path": "../../Demo"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

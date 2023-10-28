@@ -1,0 +1,38 @@
+{%extends "user/dashboard.html"%}
+{%block thiscontent%}
+<body class="text-center box-shadow" style="background-color: #F5F5F5;">
+<div>
+<div class="text-center"><h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Hello {{userdeets.sub_fname}},Do your Thrift</h1></div>
+
+<div class="content p-5" style="background-color: rgb(242, 242, 107);;padding:3em">
+    <h3>Fill your details</h3>
+  <form action="" method="post" >
+     <div class="mb-3">
+    <input type="text" name="fullname" class="form-control"  value="{%if userdeets%} 
+    {{userdeets.sub_fname}} 
+    {%endif%}"
+    placeholder="Your name">
+</div>
+
+<div class="mb-3">
+    <input type="email" name="email" class="form-control" value="{%if userdeets%} 
+    {{userdeets.sub_email}} 
+    {%endif%}"  placeholder="Your Email">
+</div>
+<div class="mb-3">
+    <input type="hidden" value="{{csrf_token()}}" name="csrf_token">
+    <input type="hidden" name="subid" value="{%if userdeets%} 
+    {{userdeets.sub_id}} 
+    {%endif%}">
+  
+  <input type="text" name="plan_amt">
+
+</div>
+<div class="mb-3">
+   <button class="btn btn-dark">Continue</button>
+</div>
+
+  </form>
+ </div>
+</div>
+{%endblock%}

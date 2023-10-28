@@ -1,0 +1,32 @@
+{%extends "admin/admin_dashboard.html"%}
+{%block thiscontent%}{%endblock%}
+{%block thatcontent%}
+
+    
+    <div class="p-5">
+        <h1>USERS LIST</h1>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>S/N</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Reg-date</th>
+      
+                <!-- Add more columns for other user details -->
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ user.sub_fname }}</td>
+                <td>{{ user.sub_lname }}</td>
+                <td>{{ user.sub_regdate }}</td>
+                <!-- Add more columns for other user details -->
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    {%endblock%}

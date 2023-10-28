@@ -1,0 +1,31 @@
+{%extends "user/dashboard.html"%}
+{%block thiscontent%}
+<body class="text-center box-shadow" style="background-color: #F5F5F5;">
+    <div class="col-12" >
+      <h3>Edit Profile</h3>
+      <form action="" method="post" enctype="multipart/form-data" class=" p-5" >
+        <div class="mb-3 ">
+            {{pform.fullname.label}}
+            {{pform.fullname.errors}}
+            {{pform.csrf_token}}
+            {{pform.fullname(class_='form-control',value=userdeets.sub_fname)}}
+        </div>
+        <div class="mb-3">
+            {% if userdeets.user_pix== None %}
+            <small class="text_danger">Please upload a profile picture!</small>
+            {% endif %}
+            {{pform.pix.label}}
+            {{pform.pix.errors}}
+            {{pform.pix(class_='form-control')}}
+        </div>
+        <div class="mb-3">
+            {{pform.btn(class_='btn btn-dark col-12')}}
+        </div>
+        
+    
+    
+      </form>
+      
+     </div>
+
+{%endblock%}

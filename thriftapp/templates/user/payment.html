@@ -1,0 +1,20 @@
+{%extends "user/dashboard.html"%}
+{%block thiscontent%}
+<body class="text-center box-shadow" style="background-color:#F5F5F5;">
+<div class="p-5 text-center"></div>
+<div class="content text-center" style="background-color:rgb(242, 242, 107);;padding:3em">
+ 
+  
+    <form action="/paystack" method="post">
+      <p>Please confirm amount and take note of your reference number</p>
+      <p class="text-danger">Amount:{{trxdeets.pay_amt}} </p>
+      <p>Refernce No:{{trxdeets.pay_refno}} </p>
+      
+     <button class="btn btn-success">Confirm payment</button>
+     <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+  
+  
+  
+    </form>
+   </div>
+  {%endblock%} 

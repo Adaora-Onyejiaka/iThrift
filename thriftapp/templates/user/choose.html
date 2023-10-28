@@ -1,0 +1,27 @@
+{%extends "user/dashboard.html"%}
+<div class="pt-5"></div>
+{%block thiscontent%}
+<body class="text-center box-shadow" style="background-color: #F5F5F5;">
+
+<div><h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Hello ,please choose a plan {{userdeets.sub_fname}}</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+
+  <select name="plans" id="plan" class="form-select">
+    <option value="">Choose Plan</option>
+    {%for x in plan_id%}
+    <option value="{{x.plan_id}}">{{x.plan_name}}</option>
+    {%endfor%}
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+
+  </select>
+  <input type="text" name="plan_amt">
+
+   <button class="btn btn-dark">Submit</button>
+
+</form>
+
+
+</div>
+{%endblock%}

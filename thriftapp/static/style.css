@@ -1,0 +1,28 @@
+.text{
+	color:rgb(95, 33, 33);
+}
+.navy{
+	background-color: rgb(250, 252, 253);
+}
+.back{
+	background-image: url("images/bg.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	min-height: 600px;
+}
+.three{
+	display: flex;
+	margin-top: -150px;
+	min-height: 200px;
+	border: 3px solid rgb(36, 32, 32);
+	border-radius: 10%;
+}
+.thra{
+	min-height: 200px;
+	margin-top: -150px;
+}
+.caro{
+	min-height: 100px;	
+	margin-top: -30px;
+}

@@ -1,0 +1,79 @@
+{%extends "user/layout.html"%}
+
+
+{% block content %}
+   
+        <div class="row">
+            <div class="col">
+        <h1 class="text-danger">For all complaints</h1>
+        <h3>Send us a message</h3>
+            </div>
+        </div>
+   
+    <div class="row">
+        <div class="col">
+            <form action="" id="myform">
+                <p id="disp" ></p>
+                <div class="mb-3">
+                    {{form.fullname(class_='form-control',placeholder='Enter your name')}}
+                </div>
+                <div class="mb-3">
+                    {{form.phone(class_='form-control',placeholder='Enter your phone')}}
+                    {{form.csrf_token}}
+                </div>
+                <div class="mb-3">
+                    {{form.email(class_='form-control',placeholder='Enter your email')}}
+                </div>
+                <div class="mb-3">
+                    {{form.message(class_='form-control',placeholder='Enter your message')}}
+                </div>
+                <div class="mb-3">
+                    {{form.btn(class_='btn btn-lg btn-outline-danger',type='button')}}
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+<script src="/static/jquery.min.js"></script>
+<script type="text/javascript">
+ 
+    $(document).ready(function(){
+      $('#btn').click(function(){
+         //retreieve the contents of the form\
+         var data2send=$('#myform').serialize()
+         //make ajax call
+         $.ajax({
+            url:"/submit/contact",
+            data:data2send,
+            type:"post",
+            dataType:'json',
+            success:function(rsp){
+                $('#disp').html(rsp['msg'])
+                $('#disp').addClass(rsp['msgclass'])
+                $('#btn').val("Send Message")
+            },
+            beforeSend:function(){
+                $('#btn').val("Please wait")
+            },
+            error:function(errmsg){
+                 console.log(errmsg)
+            }
+
+         })
+      })
+
+      
+      
+
+    })
+
+
+
+
+
+
+</script>
+</body>
+</html>
+{%endblock%}

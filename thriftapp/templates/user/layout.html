@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Ithrift</title>
+
+<link href="{{ url_for('static',filename='assets/dist/css/bootstrap.min.css')}}" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
+    <style>
+      #navy {
+        text-decoration: none;
+        color: #f5d81f;
+        display: block;
+        margin: 0%;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none; 
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='heroes.css')}}" rel="stylesheet">
+  </head>
+  <body>
+   
+
+
+    <div class="container-fluid">
+      
+      <nav class="navbar navbar-expand-lg navy shadow-lg p-3 mb-5 bg-body-tertiary rounded fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand text" href=""><h1 class="fs-1 text-warning animate__animated animate__zoomInLeft" ><img src="static/images/mylogo.png"alt="" width="80px"></h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text mx-3" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text mx-3" aria-current="page" href="/aboutus">About Us</a>
+            </li>
+        <li class="nav-item dropdown">
+              
+            <li class="nav-item">
+              <a class="nav-link text text mx-3" href="/faq">FaQs</a>
+            </li>
+               
+            <li class="nav-item">
+              <a class="nav-link text text mx-3" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text text mx-3" href="/reviews">Reviews</a>
+            </li>
+           
+           
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success text m-2" type="submit">Search</button>
+          </form>
+          
+          <a href="/admin/login" class="btn btn-warning m-2">Admin</a>
+          <a href="/login" class="btn btn-dark m-2">Users</a>
+        
+          
+        </div>
+      </div>
+    </nav>
+    
+        
+        <div class="row bana">
+          <div class="col">
+                <div class="back">
+                  
+                  
+                </div>
+          </div>
+        </div>
+           
+           
+           
+          </div>
+        </div> 
+        <!-- Accordion -->
+        
+      
+        
+        
+        
+        <div class="row">
+            <div class="col">
+            
+            
+            
+            
+            
+            
+            </div>
+        </div>
+        
+        
+        
+        
+       
+<main>
+  
+
+<div class="container col-xxl-8 py-5" >
+  {% if session.get('userid') and session.get('user_loggedin')%}
+<header class="p-3 border-bottom">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <ul class="member nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-start mb-md-0">
+          <li><a href="/dashboard" class="nav-link px-2 " style="color:#FF5714">Dashboard</a></li>
+          <li><a href="/reviews" class="nav-link px-2 link-dark">My Reviews</a></li>
+          <li><a href="donations.html" class="nav-link px-2 link-dark">My Donations</a></li>
+        
+        </ul>
+
+         
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+{% if userdeets %}
+<img src="static/images/profile/{{userdeets.user_pix}}" alt="profile" width="32" height="32" class="rounded-circle">
+{% else %}
+            <img src="static/images/mdo.jpg" alt="mdo" width="32" height="32" class="rounded-circle">
+{% endif %}
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="/profile">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/signout">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+{% endif %}
+<!-- banner for Home Page-->
+{% block content %}
+
+<div class="row flex-lg-row-reverse align-items-center px-3 g-5 pt-5"  >
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{ url_for('static',filename='images/ban.png')}}" class="d-block mx-lg-auto img-fluid" alt=" Class Exercise"  loading="lazy">
+      </div>
+      <div class="col-lg-6 ">
+        <h1 class="display-5 fw-bold lh-1 mb-3 text-warning">Save in bits</h1>
+        <p class="lead text-dark">iThrift  is an online thrift app,populary known as Ajo,Esusu. </p>
+        <p>Your number 1 online AJO</p>
+        <p>Tired of being in Thrift groups where the leader keeps giving excuses for your own money?</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/register" class="btn btn-warning px-4 me-md-2 mt-5" >Create an Account</button>
+          <a href="/login" class="mt-5"></a>
+        </div>
+      </div>
+</div>
+{% endblock %}
+</div>
+
+
+{% block morecontent %}
+<!--The home page can populate this for other contents like partner hotel-->
+
+
+<!-- end more content-->
+{% endblock morecontent %}
+
+{% block featured %}
+<div class="layout" id="featured">
+  
+  <div class="container " id="custom-cardx">
+    <h2 class="pb-2 border-bottom">Lets Show you around</h2>
+
+    <div class="row row-cols-1 row-cols-lg-4 align-items-stretch g-4 py-5">
+      <div class="col">
+       <img src="static/images/store1.jpg" class="img-fluid jiji rounded" alt="">    
+       <div class="deets">
+        <p>Be at liberty to choose the plans you want to thrift on. Either monthly or weekly.</p>
+        <h6>Our plans</h6>
+        <a href="" class="btn btn-dark ">View Plans</a>
+       </div>  
+       </div>
+
+    <div class="col">
+       <img src="static/images/h3.jpg" class="img-fluid jiji rounded" alt="">    
+       <div class="deets">
+        <p>Pay your thrift as at when due and recieve your payments with ease, all HASSLE FREE</h6>
+          <h6>for payments</h6>
+     
+        <a href="" class="btn btn-dark ">Make Payment</a>
+       </div>  
+       </div>
+      <div class="col">
+       <img src="static/images/h1.jpg" class="img-fluid jiji rounded" alt="">    
+       <div class="deets">
+        <p>ALL payments and collections are secured and properly monitored</h6>
+          <h6>For collections</h6>
+        <a href="" class="btn btn-dark ">Collections</a>
+       </div>  
+       </div>
+     <div class="col">
+       <img src="static/images/h2.jpg" class="img-fluid jiji rounded" alt="">    
+       <div class="deets">
+        <p>We are one step away from solving all your physical "AJO/ESUSU" problems.</p>
+
+       <h6>Our plans</h6>
+       
+        <a href="" class="btn btn-dark ">Join Plan</a>
+       </div>  
+       </div>
+          
+    </div>
+  </div> 
+ </div>
+ <div class="row text-center px-3 g-5 pt-5"  >
+  
+  <div class="col-lg-3 offset-4 ">
+    <h1 class="display-5 fw-bold lh-1 mb-3 text-warning">Save in bits</h1>
+    <p class="lead text-dark">Register now,Join plans,Make payments and begin to pick your slot for collections</p>
+    <p>You can go as low as 1k daily to thrift 10k in 10 days! yes!! just like your regular "AJO/ESUSU"</p>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+      <a href="/register" class="btn btn-warning px-5 me-md-2 mt-5 mb-3 text-center" >Lets Get You Started</button>
+      <a href="/login" class="mt-5"></a>
+    </div>
+  </div>
+</div>
+ {% endblock %}
+ <div class="row align-items-md-stretch mb-5">
+  <div class="col-md-6">
+    <div class="h-100 p-5 text-bg-dark rounded-3">
+      <h2>What we offer you</h2>
+      <p>We offer you peace of mind, now you can make contributions without fear of loosing your own money to Fraudsters posing as thrift co-ordinators</p>
+      <button class="btn btn-outline-light" type="button">Read More</button>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+      <h2>What you stand to gain</h2>
+      <p>From the convenience of your home,while on your mobile phone, you can enjoy your own privacy whilst sorting your financial choices</p>
+      <button class="btn btn-outline-secondary" type="button">Read more</button>
+    </div>
+  </div>
+</div>
+<!-- FOOTER -->
+<div style=" background-color: rgb(19, 31, 31); ">
+  <footer class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="text-warning" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+        <small class="d-block mb-3 text-warning">&copy; 2023</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5 class="text-warning">Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5 class="text-warning">Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5 class="text-warning">Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Business</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Government</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5 class="text-warning">About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+          <li><a class="link-secondary text-decoration-none" href="/contact
+            ">Contactus</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+</main>
+
+ <script src="{{ url_for('static',filename='assets/dist/js/bootstrap.bundle.min.js')}}"></script>
+ <script src="{{ url_for('static',filename='js/jquery.min.js')}}"></script>
+
+
+ {% block customjs %}
+
+
+ {% endblock %}
+      
+  </body>
+</html>

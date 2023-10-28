@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Admin Dashboard-Ithrift </title>
+        
+        <link href="{{ url_for('static',filename='css/styles.css')}}" rel="stylesheet" />
+        <link href="{{ url_for('static',filename='fa/css/all.min.css')}}" rel="stylesheet">
+    </head>
+    <body >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col sb-nav-fixed">
+
+                
+        <nav class="navbar navbar-expand-lg navy shadow-lg p-3 mb-5 bg-body-tertiary rounded fixed-top">
+            <div class="container-fluid">
+              <a class="navbar-brand text" href="index.html"><h1 class="fs-1 text-warning animate__animated animate__zoomInLeft" >iThrift</h1></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active text" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text" aria-current="page" href="demo.html">About Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    
+                  <li class="nav-item">
+                    <a class="nav-link text text" href="faq.html">FaQ</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Menu
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">View subscribers</a></li>
+                      <li><a class="dropdown-item" href="#">View Payment</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="#"> View Collections</a></li>
+                      
+                    </ul>
+                  </li>
+                 
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success text m-2" type="submit">Search</button>
+                </form>
+                
+                <li><a class="btn btn-danger" href="{{url_for('admin_logout')}}">Logout</a></li>
+              </div>
+            </div>
+          </nav>
+          
+   
+            <div class="row">
+                <div class="col">
+
+                </div>
+                    <div>
+                        
+                    </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+        
+        <script src="{{ url_for('static',filename='assets/dist/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ url_for('static',filename='js/scripts.js')}}"></script>
+      
+      
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{%extends "admin/admin_dashboard.html"%}
+{%block thiscontent%}{%endblock%}
+{%block thatcontent%}
+
+    
+    <div class="p-5">
+        <h1>PAYMENT LIST</h1>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>S/N</th>
+                <th>Full Name</th>
+                <th>Amount Paid</th>
+                <th>Status</th>
+      
+                <!-- Add more columns for other user details -->
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ user.pay_fullname }}</td>
+                <td>{{ user.pay_amt }}</td>
+                <td>{{ user.pay_status}}</td>
+                
+                <!-- Add more columns for other user details -->
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    {%endblock%}
